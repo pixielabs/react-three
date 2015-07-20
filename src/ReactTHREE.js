@@ -148,7 +148,7 @@ var THREEObject3DMixin = assign({}, THREEContainerMixin, {
   getPublicInstance: function() {
     return this._THREEObject3D;
   },
-  
+
   createTHREEObject: function() {
     return new THREE.Object3D();
   },
@@ -336,6 +336,10 @@ var THREEScene = React.createClass({
 	      "the scene component must be a number, not " + backgroundtype);
       this._THREErenderer.setClearColor(props.background);
 
+    }
+
+    if (typeof props.fog !== 'undefined') {
+      this._THREEObject3D.fog = props.fog;
     }
 
     this._THREEcamera = camera;
